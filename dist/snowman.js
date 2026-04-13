@@ -30,30 +30,30 @@ function drawSnowflakes(canvas) {
    }
 }
 
+// Write the word "SNOW"
 function drawSnowText(canvas) {
    let context = canvas.getContext("2d");
    context.font = "80px Verdana";
    context.textAlign = "center";
    context.baseline = "top";
    context.fillStyle = "blue";
-   context.fillText("SNOW", canvas.width/2, 10);
+   context.fillText("SNOW", canvas.width/2, 70);
 }
 
+// Create 3 circles on top of each other
 function drawSnowman(canvas) {
    let context = canvas.getContext("2d");
    context.fillStyle = "white";
    context.beginPath();
    context.arc(150, 200, 50, 0, Math.PI * 2);
    context.arc(150, 120, 40, 0, Math.PI * 2);
+   context.closePath(); // closing the path here to prevent the path from the bottom connecting to the top
+                        // note: no idea why it's not needed after each arc but it looks like this works
    context.arc(150, 60, 25, 0, Math.PI * 2);
-   context.closePath();
    context.fill();
-   // Bottom circle: arc() centered at (150, 200) with radius 50 that begins at 0 and ends at Math.PI * 2
-   // Middle circle: arc() centered at (150, 120) with radius 40 that begins at 0 and ends at Math.PI * 2
-   // Top circle: arc() centered at (150, 60) with radius 25 that begins at 0 and ends at Math.PI * 2
-   // All three circles should use fillStyle white and be displayed with the fill() function
 }
 
+// Create a rhombus shaped snowflake
 function drawSingleFlake(canvas, x, y) {
    let context = canvas.getContext("2d");
    context.beginPath();
